@@ -194,6 +194,13 @@ Default: `Node/SitemapGenerator`
 
 Change the default crawler user agent.
 
+### customDomain
+
+Type: `string`
+Default: `null`
+
+Change the default uri.
+
 ## Events
 
 The Sitemap Generator emits several events which can be listened to.

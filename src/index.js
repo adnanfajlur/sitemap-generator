@@ -29,7 +29,8 @@ module.exports = function SitemapGenerator(uri, opts) {
     changeFreq: '',
     priorityMap: [],
     ignoreAMP: true,
-    ignore: null
+    ignore: null,
+    customDomain: null
   };
 
   if (!uri) {
@@ -142,12 +143,13 @@ module.exports = function SitemapGenerator(uri, opts) {
           },
           () => {
             const filename = path.basename(sitemapPath);
+            const domain = options.customDomain || parsedUrl.toString()
             fs.writeFile(
               sitemapPath,
               createSitemapIndex(
-                parsedUrl.toString(),
+                domain,
                 filename,
-                sitemaps.length
+                sitemaps.length,
               ),
               cb
             );
